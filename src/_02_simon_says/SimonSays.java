@@ -41,7 +41,7 @@ public class SimonSays extends KeyAdapter {
 		// 3. Use a JOptionPane to tell the user the rules: "Press the matching
 		// key when
 		// 'Simon says' otherwise press a different key"
-			JOptionPane.showMessageDialog(null, "Here are the rules: Press the mathching when 'Simon Says'. Otherwise, press a different key.");
+			JOptionPane.showMessageDialog(null, "Press the mathching when 'Simon Says'. Otherwise, press a different key.");
 		// 4. Call the showImage method to show an image
 				showImage();
 	}
@@ -85,17 +85,17 @@ public class SimonSays extends KeyAdapter {
 		// 8. Set the name of your frame
 
 		// 9. Pack the frame
-
+			frame.pack();
 		// 10. Set the defaultCloseOperation of your frame to
 		// JFrame.EXIT_ON_CLOSE
-
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// 11. Add a key listener to the frame
-
+			frame.addKeyListener(this);
 		// 12. Create a new instance of Random
-
+			Random random = new Random();
 		// 13. Use the Random and the speak method to either say
 		// "Simon says press this key" or "Press this key"
-
+			
 		// 14. Above, set the value of simonSays to true/false appropriately
 
 	}
