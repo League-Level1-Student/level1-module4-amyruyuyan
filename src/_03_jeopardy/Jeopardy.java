@@ -28,6 +28,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import com.sun.xml.internal.messaging.saaj.packaging.mime.Header;
+
 
 /* Check out the Jeopardy Handout to see what the end result should look like: http://bit.ly/1bvnvd4 */
 
@@ -35,6 +37,7 @@ public class Jeopardy implements ActionListener {
 	private JButton firstButton;
 	private JButton secondButton;
 	private JButton thirdButton, fourthButton;
+	private JButton fifthButton;
 	private JPanel quizPanel;
 	private int score = 0;
 	private JLabel scoreBox = new JLabel("0");
@@ -50,29 +53,30 @@ public class Jeopardy implements ActionListener {
 		frame.setLayout(new BorderLayout());
 
 		// 1. Make the frame show up
-
+		frame.setVisible(true);
 		// 2. Give your frame a title
-
+		frame.setTitle("frame");
 		// 3. Create a JPanel variable to hold the header using the createHeader method
-
+		JPanel panel = createHeader("Science"); 
 		// 4. Add the header component to the quizPanel
-
+		quizPanel.add(panel);
 		// 5. Add the quizPanel to the frame
-
+		frame.add(panel);
 		// 6. Use the createButton method to set the value of firstButton
-
+		JButton firstbutton = createButton("200");
 		// 7. Add the firstButton to the quizPanel
-
+		quizPanel.add(firstButton);
 		// 8. Write the code to complete the createButton() method below. Check that your
 		// game looks like Figure 1 in the Jeopardy Handout - http://bit.ly/1bvnvd4.
 
 		// 9. Use the secondButton variable to hold a button using the createButton
 		// method
-
+		JButton secondButton = createButton("400");
 		// 10. Add the secondButton to the quizPanel
-
+		quizPanel.add(secondButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
-
+		firstButton.addActionListener(null);
+		secondButton.addActionListener(null);
 		// 12. Write the code to complete the actionPerformed() method below
 
 		// 13. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
@@ -81,6 +85,21 @@ public class Jeopardy implements ActionListener {
 		 * [optional] Use the showImage or playSound methods when the user answers a
 		 * question
 		 */		
+		
+		
+		//place to create stuff
+		
+		JButton thirdButton = createButton("400");
+		quizPanel.add(thirdButton);
+		thirdButton.addActionListener(null);
+		
+		JButton fourthButton = createButton("600");
+		quizPanel.add(fourthButton);
+		fourthButton.addActionListener(null);
+		
+		JButton fifthButton = createButton("1000");
+		quizPanel.add(fifthButton);
+		fifthButton.addActionListener(null);
 		
 		frame.pack();
 		quizPanel.setLayout(new GridLayout(buttonCount + 1, 3));
@@ -93,9 +112,9 @@ public class Jeopardy implements ActionListener {
 	private JButton createButton(String dollarAmount) {
 		
 		// Create a new JButton
-
+		JButton button1 = new JButton();
 		// Set the text of the button to the dollarAmount
-
+		 button1.setText("200");
 		// Increment the buttonCount (this should make the layout vertical)
 
 		// Return your new button instead of the temporary button

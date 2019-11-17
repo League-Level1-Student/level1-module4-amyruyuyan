@@ -18,6 +18,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+
+import javafx.scene.input.KeyCode;
+
 import java.io.IOException;
 
 public class SimonSays extends KeyAdapter {
@@ -48,31 +51,40 @@ public class SimonSays extends KeyAdapter {
 
 	public void keyPressed(KeyEvent e) {
 		// 15. Make a points variable to track the score.
-
+		int points = 0;
 		// 16. If the keyCode matches the imageIndex and "Simon says"
-
+		if (simonSays && e.getKeyCode() == imageIndex) {
+			points += 1;
+			speak("YOU ARE CORRECT!");
+		}
 		// 17. Increase the value of score
-
+			
 		// 18. Use the speak method to tell the user they were correct
-
+			
 		// 19. If the keyCode doesn't match the imageIndex and "Simon didn't
 		// say..."
-
+		else if (!simonSays && e.getKeyCode()!= imageIndex){
+			points += 1;
+			speak("YOU ARE CORRECT!");
+		}
 		// 20. Increase the value of score
 
 		// 21. Use the speak method to tell the user they were correct
-
+		
 		// 22. Increment tries by 1
-
+		tries += 1;
 		// 25. If tries is greater than 9 (or however many you want)...
-
+		if (tries == 5) {
+			JOptionPane.showMessageDialog(null, "Your score is" + points);
+		}
 		// 26. Tell the user their score
 
 		// 27. Exit the program
-
+		System.exit(0);
 		// 23. Dispose of the frame
-
+		frame.dispose();
 		// 24. Call the showImage method to show a new image
+		showImage();
 	}
 
 	private void showImage() {
@@ -83,7 +95,7 @@ public class SimonSays extends KeyAdapter {
 		// 7. Uncomment the following line to add a random image to your frame
 			frame.add(getNextRandomImage());
 		// 8. Set the name of your frame
-
+			frame.setName("frame");
 		// 9. Pack the frame
 			frame.pack();
 		// 10. Set the defaultCloseOperation of your frame to
@@ -93,11 +105,17 @@ public class SimonSays extends KeyAdapter {
 			frame.addKeyListener(this);
 		// 12. Create a new instance of Random
 			Random random = new Random();
+			simonSays = random.nextBoolean();
 		// 13. Use the Random and the speak method to either say
 		// "Simon says press this key" or "Press this key"
 			
 		// 14. Above, set the value of simonSays to true/false appropriately
-
+			if (simonSays) {
+				speak("Simon says press this button");
+			}
+			else {
+				speak("Press this key");
+			}
 	}
 
 	private Component getNextRandomImage() {
