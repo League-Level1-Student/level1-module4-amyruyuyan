@@ -10,6 +10,7 @@ int type;
 public static void main(String[] args) {
 JFrame frame = new JFrame("Type or Die");
 frame.setVisible(true);
+frame.addKeyListener(null);
 char currentLetter;
 
 currentLetter = generateRandomLetter();
@@ -20,5 +21,5 @@ char generateRandomLetter() {
       
 JLabel label = new JLabel();
 }
-frame.add(KeyListener);
 }
+
