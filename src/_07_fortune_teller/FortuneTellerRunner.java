@@ -14,6 +14,8 @@ public class FortuneTellerRunner {
     
     static void begin() {
       	 // Welcome the user. Give them a hint for the secret location.
-
+    	System.out.println("Welcome to the fortune telling game.");
+    	System.out.println("This will tell you your fortune.");
+    	System.out.println("One could think this is similar to a magic eight ball.");
     }
 }
