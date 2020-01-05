@@ -17,13 +17,14 @@ import twitter4j.auth.AccessToken;
 public class Latest_Tweet implements ActionListener {
 JFrame frame = new JFrame("The Amazing Tweet Retriever");
 JPanel panel = new JPanel();
-JTextField field = new JTextField("Search Twitter");
-JButton button = new JButton();
+JTextField field = new JTextField(10);
+JButton button = new JButton("Search Twitter");
 
 
 void setup(){
 frame.setVisible(true);
 button.addActionListener(this);
+panel.add(field);
 panel.add(button);
 frame.add(panel);
 frame.pack();
@@ -60,7 +61,7 @@ public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
 	
 	if (e.getSource() == button) {
-		System.out.println("TWEET TWEET");
+		System.out.println(getLatestTweet(field.getText()));
 	}
 	
 }	
