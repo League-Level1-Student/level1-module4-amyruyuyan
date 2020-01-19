@@ -14,7 +14,6 @@ public class WhackAMole implements ActionListener {
 
 JFrame frame = new JFrame();
 JPanel panel = new JPanel();
-
 	
 void setup() {
 frame.setSize(10, 14);
@@ -51,11 +50,18 @@ void speak(String words) {
 
 @Override
 public void actionPerformed(ActionEvent e) {
+	
+	
+JButton mole = (JButton) e.getSource();
+	if (!mole.getText().equals("mole")) {
+		speak("You missed");	
+		}
 	frame.remove(panel);
 	panel = new JPanel();
 	panel.setPreferredSize(new Dimension(500, 300));
 	drawButtons(new Random().nextInt(24));
 	frame.add(panel);
 	frame.pack();
+	
 }
 }
