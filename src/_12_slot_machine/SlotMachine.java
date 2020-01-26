@@ -1,5 +1,7 @@
 package _12_slot_machine;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Random;
@@ -11,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class SlotMachine {
+public class SlotMachine implements ActionListener {
 Random random = new Random();
 JFrame frame = new JFrame();
 JPanel panel = new JPanel();
@@ -27,13 +29,15 @@ void setup() {
 frame.setVisible(true);
 button.setText("SPIN");
 panel.add(button);
-//one = random.nextInt(3);
-//two = random.nextInt(3);
-//three = random.nextInt(3);
+button.addActionListener(this);
+
+one = random.nextInt(3);
+two = random.nextInt(3);
+three = random.nextInt(3);
 try {
 	label1 = createLabelImage("corgi.jpg");
-	label2 = createLabelImage("husky.jpg");
-	label2 = createLabelImage("pomeranian .jpg");
+	label2 = createLabelImage("huskyyy.jpg");
+	label3 = createLabelImage("pomeranian .jpg");
 } catch (MalformedURLException e) {
 	// TODO Auto-generated catch block
 	e.printStackTrace();
@@ -60,5 +64,67 @@ if (imageURL == null){
 Icon icon = new ImageIcon(imageURL);
 JLabel imageLabel = new JLabel(icon);
 return imageLabel;
+}
+
+@Override
+public void actionPerformed(ActionEvent e) {
+	// TODO Auto-generated method stub
+	try {
+panel.remove(label1);
+panel.remove(label2);	
+panel.remove(label3);
+panel.remove(button);
+frame.remove(panel);
+panel = new JPanel();
+	
+	int rand = random.nextInt(3);
+	
+//label1
+if (rand == 0) {
+	label1 = createLabelImage("corgi.jpg");
+}
+else if (rand == 1){	
+	label1 = createLabelImage("huskyyy.jpg");
+}
+else {	
+	label1 = createLabelImage("pomeranian .jpg");
+}
+
+rand = random.nextInt(3);
+
+//label2
+if (rand == 0) {
+	label2 = createLabelImage("corgi.jpg");
+}
+else if (rand == 1){	
+	label2 = createLabelImage("huskyyy.jpg");
+}
+else {	
+	label2 = createLabelImage("pomeranian .jpg");
+}
+
+rand = random.nextInt(3);
+
+//label3
+if (rand == 0) {
+	label3 = createLabelImage("corgi.jpg");
+}
+else if (rand == 1){	
+	label3 = createLabelImage("huskyyy.jpg");
+}
+else {	
+	label3 = createLabelImage("pomeranian .jpg");
+}
+
+panel.add(button);
+panel.add(label1);
+panel.add(label2);	
+panel.add(label3);
+frame.add(panel);
+frame.pack();
+
+	} catch (Exception e2) {
+		// TODO: handle exception
+	}
 }
 }
