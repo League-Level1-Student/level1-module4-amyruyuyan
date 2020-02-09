@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class SlotMachine implements ActionListener {
@@ -90,31 +91,33 @@ else {
 	label1 = createLabelImage("pomeranian .jpg");
 }
 
-rand = random.nextInt(3);
+int rand1 = random.nextInt(3);
 
 //label2
-if (rand == 0) {
+if (rand1 == 0) {
 	label2 = createLabelImage("corgi.jpg");
 }
-else if (rand == 1){	
+else if (rand1 == 1){	
 	label2 = createLabelImage("huskyyy.jpg");
 }
 else {	
 	label2 = createLabelImage("pomeranian .jpg");
 }
 
-rand = random.nextInt(3);
+int rand2 = random.nextInt(3);
 
 //label3
-if (rand == 0) {
+if (rand2 == 0) {
 	label3 = createLabelImage("corgi.jpg");
 }
-else if (rand == 1){	
+else if (rand2 == 1){	
 	label3 = createLabelImage("huskyyy.jpg");
 }
 else {	
 	label3 = createLabelImage("pomeranian .jpg");
 }
+
+
 
 panel.add(button);
 panel.add(label1);
@@ -123,8 +126,13 @@ panel.add(label3);
 frame.add(panel);
 frame.pack();
 
+if (rand == rand1 && rand1 == rand2) {
+	JOptionPane.showMessageDialog(null, "CONGRATS! YOU WIN!");
+}
+	
 	} catch (Exception e2) {
 		// TODO: handle exception
 	}
+
 }
 }
